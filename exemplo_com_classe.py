@@ -17,7 +17,7 @@ class MinhaTela:
         self.email.pack()
 
 gui = tk.Tk()
-minhatela = MinhaTela(gui)
+MinhaTela(gui)
 gui.mainloop()
 
 
