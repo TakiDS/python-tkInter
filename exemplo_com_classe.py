@@ -11,13 +11,13 @@ class MinhaTela:
         container = tk.Frame(self.janela, width=100, height=100,bg='green')  # Declaração do frame com o parâmetro pai(janela)
         container.pack(expand=True)  # Adiciona o componente na janela
 
-        self.nome = tk.Label(self.container, text='Marcos')
+        self.nome = tk.Label(container, text='Marcos')
         self.email = tk.Label(self.janela, text='Aiulo@gmial')
         self.nome.pack()
         self.email.pack()
 
 gui = tk.Tk()
-minhatela = MinhaTela(gui)
+MinhaTela(gui)
 gui.mainloop()
 
 
