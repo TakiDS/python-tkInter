@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+'Atores
+actor Cliente
+actor Sistema_de_pagamento
+actor Adminstrador 
+
+'Verbos
+rectangle "Sistema de loja" {
+(Realizar Cadastro) as UC01
+(Navegar pelos Produtos) as UC02
+(Adicionar Intens) as UC03
+(Visualizar Carrinho) as UC04
+(Realizar Pedido) as UC05
+(Validar Estoque) as UC06
+(Comunicar pagamento) as UC07
+(acompanhar entrega) as UC08
+(Gerenciar Pedido) as UC09
+(Usar Cupom)  as UC10
+(Salvar Desejos) as UC11
+(Gerenciar Produto) as UC12
+note left of (UC09) : "Gerenciar envolve \nOpercaçoes Crud"
+}
+
+Cliente -- UC01
+Cliente -- UC02
+Cliente -- UC04
+Cliente -- UC05
+UC07 -- Sistema_de_pagamento
+Cliente -- UC08
+UC12 --- Adminstrador
+UC09 -- Adminstrador
+UC05 ..> UC06 : <<include>>
+UC05 ..> UC07 : <<include>>
+
+UC02 <.. UC03 : <<extend>>
+UC05 <.. UC10 : <<extend>>
+UC02 <.. UC11 : <<extend>>
+
+
+
+@enduml

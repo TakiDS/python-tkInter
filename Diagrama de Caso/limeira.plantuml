@@ -1,0 +1,70 @@
+@startuml Mandacaru
+left to right direction
+
+
+
+rectangle "Sistema de Compras"{
+(Fazer login) as UC01
+(Fazer cadastro) as UC02
+(Adicionar intens ao carrinho) as UC03
+(Visualizar carrinho) as UC04
+(Realizar pedido) as UC05
+(Validar estoque) as UC06
+(Autenticar cadastro) as UC07
+(Verificar login) as UC08
+(Gerar pagamento) as UC09
+(Acompanhar pedido) as UC10
+(Ver produtos) as UC11
+(Adicionar produtos) as UC12
+(Remover produtos) as UC13
+(Atualizar preços) as UC14
+(Consultar pedidos) as UC15
+(Cancelar pedidos) as UC16
+(Confirmar pedidos) as UC17
+(Utilizar cupom) as UC18
+(Salvar na lista de desejo) as UC19
+}
+
+
+actor Lolja 
+actor Cobrador
+actor Cliente 
+
+
+
+Cliente -- UC01
+Cliente -- UC02
+Cliente -- UC03
+Cliente -- UC04
+Cliente -- UC05
+UC06 -- Lolja 
+UC09 -- Cobrador
+UC10 -- Lolja
+Cliente -- UC10
+UC17 -- Lolja 
+Cliente -- UC11
+Cliente -- UC18
+
+UC12 --Lolja
+UC13 -- Lolja
+UC14 --Lolja
+UC16 --Lolja
+UC15 --Lolja
+Cobrador -- UC18
+Cliente -- UC19
+
+UC01 ..> UC08 : <<include>>
+UC02 ..> UC07 : <<include>>
+UC05 ..> UC06 : <<include>>
+UC05 ..> UC09 : <<include>>
+UC05 ..> UC17 : <<include>>
+
+
+
+UC05 ..> UC03 : <<extend>>
+UC17 <.. UC16 : <<extend>>
+UC18 <.. UC09 : <<extend>>
+UC19 <.. UC11 : <<extend>>
+
+@enduml
+
